@@ -1,8 +1,9 @@
 from otapackage.lib import base
 import sys
+import os
 
 #### Info for configuration file ####
-customer_suffix = 'nor'
+customer_suffix = 'nand'
 configuration_file_suffix = '.conf'
 # partition file contain a partition table for specified device
 partition_file = 'partition'
@@ -11,14 +12,18 @@ partition_file_name = "%s%s" %(partition_file, configuration_file_suffix)
 customize_file = 'customization'
 customize_file_name = "%s%s" %(customize_file, configuration_file_suffix)
 # where is partition.conf/customize.conf deployed
-customer_path = 'otapackage/customer/generated/'
+customer_path = '.'
 
 #### Info for package making ####
 # where is image files deployed to be sliced
-image_path = 'otapackage/res/image'
+image_path = '../image'
 # where is update files deployed
-output_path = 'otapackage/out'
+output_path = '../recovery-update'
 
+def resource_path(relative):
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, relative)
+    return os.path.join(relative) 
 # log
 log_size = 10 * 1024 * 1024
 log_prompt = "otapackage"
@@ -29,11 +34,14 @@ log_backup_cnt = 5
 # signature
 # whether signature package or not
 signature_flag = True
-signature_home = 'otapackage/depmod/signature'
-signature_cipher_lib = 'signapk/signapk.jar'
-signature_key_dir = 'otapackage/res/keys'
-signature_rsa_public_key = "%s/%s" % (signature_key_dir, "testkey.x509.pem")
-signature_rsa_private_key = "%s/%s" % (signature_key_dir, "testkey.pk8")
+signature_home = '.'
+signature_cipher_lib = 'signapk.jar'
+signature_key_dir = 'keys'
+#signature_rsa_public_key = "%s/%s" % (signature_key_dir, "testkey.x509.pem")
+#signature_rsa_private_key = "%s/%s" % (signature_key_dir, "testkey.pk8")
+signature_rsa_public_key = resource_path('testkey.x509.pem')
+signature_rsa_private_key = resource_path('testkey.pk8')
+
 
 # generated packages for ota update application
 # package named with prefix 'update', fullname is 'update'+'X'+'.zip', X
