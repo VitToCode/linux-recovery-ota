@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.android.dumpkey.DumpPublicKey
+Created-By: 9-internal (Oracle Corporation)
+
