@@ -13,11 +13,10 @@ re_nor_partition = (
 re_nand_tag = 'nand'
 re_nand_device_size = '128MB'
 re_nand_partition = (
-                    ("uboot", "0x0", "0x20000", "mtdblock0"),
-                    ("kernel", "0x20000", "0x400000", "mtdblock1"),
-                    ("recovery", "0x420000", "0x500000", "mtdblock2"),
-                    ("rootfs", "0x920000", "0x5000000", "mtdblock3"),
-                    ("data", "0x5920000", "0x26E0000", "mtdblock4"),
+                    ("uboot", "0x0", "0x100000", "mtdblock0"),
+                    ("kernel", "0x100000", "0x800000", "mtdblock1"),
+                    ("rootfs", "0x980000", "0x2800000", "mtdblock2"),
+                    ("data", "0x3180000", "0x4e80000", "mtdblock3"),
 )
 # mmc configuation
 re_mmc_tag = 'mmc'

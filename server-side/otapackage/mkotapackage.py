@@ -150,6 +150,9 @@ class Maker(object):
             output_package_encrypted = ("%s.zip" % (output_package))
             caller_zip = "zip -r %s %s" % (
                 output_package_unencrypted, output_package)
+            self.printer.debug(caller_zip)
+            self.printer.debug(output_package_unencrypted)
+            self.printer.debug(output_package)  
             os.system(caller_zip)
             if config.signature_flag:
                 caller_signature = "java -jar -Xms512M -Xmx1024M %s -w %s %s %s %s" % (
