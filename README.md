@@ -13,11 +13,11 @@ source https://github.com/YuanhuanLiang/X1000/tree/master/external/recovery/
 
 The directory 'server-side/otapackage/customer/generated' contains pregenerated config files for M3K fw.
 
-'partition_nand.conf' usually doesn't need to edit (it allready correspond to M3K nand partition scheme)
+'partition_nand.conf' usually doesn't need to edit (it allready corresponds to M3K nand partition scheme)
 
-'customization_nand.conf' you can edit manually or generate it interactively with running 'customize.sh' 
+'customization_nand.conf' you can edit it manually or generate it interactively with running 'customize.sh' 
 
-3. Prepare 'customization_nand.conf' in accordance what parts you plain to update with ota update (M3K.fw)
+3. Prepare 'customization_nand.conf' in accordance which parts you plain to update with ota update (M3K.fw)
 
 4. Place to directory 'server-side/image/nand/' partition image files which you plain to pack in M3K.fw update
 
